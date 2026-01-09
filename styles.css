@@ -1,35 +1,115 @@
-:root{
-  --accent:#0a74da;
-  --bg:#ffffff;
-  --text:#222;
-  --muted:#666;
-  --max-width:1100px;
-  --radius:8px;
-  font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+/* Base styles (kept minimal — add your existing styles above this block if needed) */
+:root {
+  --linkedin-color: #0A66C2;
+  --linkedin-hover: #084b96;
+  --whatsapp-color: #25D366;
+  --whatsapp-hover: #1aa757;
+  --btn-bg: #fff;
+  --btn-fg: #fff;
+  --btn-size: 44px;
 }
 
-*{box-sizing:border-box}
-body{margin:0;color:var(--text);background:var(--bg);line-height:1.5}
-.container{max-width:var(--max-width);margin:0 auto;padding:2rem}
-.header-inner{display:flex;align-items:center;justify-content:space-between}
-.logo{font-size:1.25rem;margin:0}
-.nav a{color:var(--text);text-decoration:none;margin-left:1rem}
-.site-header{border-bottom:1px solid #eee;background:#fff;position:sticky;top:0;z-index:5}
-.hero{background:#f6fbff;padding:4rem 0;text-align:center}
-.hero h2{font-size:1.75rem;margin:0 0 .5rem}
-.lead{color:var(--muted);margin:0 0 1rem}
-.ctas{display:flex;gap:0.75rem;justify-content:center}
-.btn{display:inline-block;padding:.6rem 1rem;border-radius:6px;text-decoration:none;color:#fff}
-.btn.email{background:var(--accent)}
-.btn.whatsapp{background:#25D366}
-.services{padding:2rem 0}
-.services-list{list-style:disc;padding-left:1.25rem;color:var(--muted)}
-.contact-form{display:grid;gap:.6rem;max-width:540px;margin-top:1rem}
-.contact-form input,.contact-form textarea{width:100%;padding:.6rem;border:1px solid #ddd;border-radius:6px}
-.contact-form button{background:var(--accent);color:#fff;padding:.6rem 1rem;border:none;border-radius:6px;cursor:pointer}
-.site-footer{border-top:1px solid #eee;padding:1rem 0;text-align:center;color:var(--muted);margin-top:2rem}
-@media (max-width:640px){
-  .header-inner{flex-direction:column;gap:.75rem}
-  .nav a{margin-left:0;margin-right:.5rem}
-  .ctas{flex-direction:column}
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  line-height: 1.5;
+  color: #222;
+  background: #f9f9fb;
+}
+
+header, main, footer {
+  padding: 1.5rem;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+footer {
+  border-top: 1px solid #e6e6e9;
+  background: #fff;
+  padding: 1rem 1.5rem;
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Social buttons container */
+.social-buttons {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+/* Shared social button styles */
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--btn-size);
+  height: var(--btn-size);
+  border-radius: 999px;
+  text-decoration: none;
+  transition: transform 150ms ease, box-shadow 150ms ease;
+  box-shadow: 0 1px 2px rgba(16,24,40,0.05);
+  border: 1px solid rgba(16,24,40,0.06);
+  overflow: hidden;
+}
+
+.social-btn .icon {
+  width: 60%;
+  height: 60%;
+  fill: currentColor;
+}
+
+.social-btn:hover,
+.social-btn:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(16,24,40,0.12);
+}
+
+/* LinkedIn specific */
+.social-btn.linkedin {
+  background: var(--linkedin-color);
+  color: var(--btn-fg);
+}
+
+.social-btn.linkedin:hover,
+.social-btn.linkedin:focus {
+  background: var(--linkedin-hover);
+}
+
+/* WhatsApp specific */
+.social-btn.whatsapp {
+  background: var(--whatsapp-color);
+  color: var(--btn-fg);
+}
+
+.social-btn.whatsapp:hover,
+.social-btn.whatsapp:focus {
+  background: var(--whatsapp-hover);
+}
+
+/* Text for screen readers only */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 520px) {
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
